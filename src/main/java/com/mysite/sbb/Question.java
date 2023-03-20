@@ -16,10 +16,10 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 200)
+    @Column(length = 200) // VARCHAR
     private String subject;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") // TEXT
     private String content;
 
     @CreatedDate
