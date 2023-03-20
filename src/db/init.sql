@@ -1,0 +1,4 @@
+# DB 생성
+DROP DATABASE IF EXDISTS sbb__dev;
+CREATE DATABASE sbb__dev;
+USE DATABASE sbb__dev;
