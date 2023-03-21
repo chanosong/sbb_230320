@@ -5,6 +5,7 @@ import com.mysite.sbb.Answer.AnswerRepository;
 import com.mysite.sbb.Question.Question;
 import com.mysite.sbb.Question.QuestionRepository;
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class SbbApplicationTests {
+
+	@BeforeEach
+	void beforeEach() {
+
+	}
 
 	@Autowired
 	private QuestionRepository questionRepository;
