@@ -4,6 +4,7 @@ import com.mysite.sbb.Answer.Answer;
 import com.mysite.sbb.Answer.AnswerRepository;
 import com.mysite.sbb.Question.Question;
 import com.mysite.sbb.Question.QuestionRepository;
+import com.mysite.sbb.Question.QuestionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,9 @@ class SbbApplicationTests {
 
 	@Autowired
 	private AnswerRepository answerRepository;
+
+	@Autowired
+	private QuestionService questionService;
 
 	@Test
 	void testJpaAddQuestion() {
@@ -134,5 +138,14 @@ class SbbApplicationTests {
 
 		assertEquals(1, answerList.size());
 		assertEquals("자동 생성 완료", answerList.get(0).getContent());
+	}
+
+	@Test
+	void testJpaCreateDummyQuestion() {
+		for (int i = 0; i <= 300; i++) {
+			String subject = String.format("테스트 데이터입니다:[%03d]", i);
+			String content = "냉무";
+			this.questionService.create(subject, content);
+		}
 	}
 }
