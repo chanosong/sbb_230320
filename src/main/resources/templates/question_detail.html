@@ -18,6 +18,9 @@
             <div class="card-body">
                 <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
                 <div class="badge bg-light text-dark p-2 text-start">
+                    <div class="mb-2">
+                        <span th:if="${answer.author != null}" th:text="${answer.author.username}"/>
+                    </div>
                     <div th:text="${#temporals.format(answer.createDate,'yyyy-MM-dd HH:mm')}"></div>
                 </div>
             </div>
@@ -27,7 +30,7 @@
         <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3">
             <div th:replace="~{form_errors :: formErrorsFragment}"/>
             <textarea sec:authorize="isAnonymous()" disabled th:field="*{content}" rows="10" class="form-control"></textarea>
-            <textarea sec:authorize="isAuthenticated()" disabled th:field="*{content}" rows="10" class="form-control"></textarea>
+            <textarea sec:authorize="isAuthenticated()" th:field="*{content}" rows="10" class="form-control"></textarea>
             <input type="submit" value="답변등록" class="btn btn-primary my-2">
         </form>
     </div>
