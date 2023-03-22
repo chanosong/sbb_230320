@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,7 +26,9 @@ public class Question {
     private String content;
 
     @CreatedDate
-    private LocalDateTime createTime;
+    private LocalDateTime createDate;
+
+    private LocalDateTime modifyDate;
 
     @ManyToOne
     private SiteUser author;

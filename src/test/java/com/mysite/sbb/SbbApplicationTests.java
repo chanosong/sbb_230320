@@ -40,13 +40,13 @@ class SbbApplicationTests {
 		Question q1 = new Question();
 		q1.setSubject("SpringTest 어노테이션이 안됩니다.");
 		q1.setContent("Gradle에 추가했는데도 왜 그럴까요?");
-		q1.setCreateTime(LocalDateTime.now());
+		q1.setCreateDate(LocalDateTime.now());
 		this.questionRepository.save(q1);
 
 		Question q2 = new Question();
 		q2.setSubject("SpringBoot Model 관련 질문합니다.");
 		q2.setContent("ID는 자동 생성인건가요?");
-		q2.setCreateTime(LocalDateTime.now());
+		q2.setCreateDate(LocalDateTime.now());
 		this.questionRepository.save(q2);
 	}
 

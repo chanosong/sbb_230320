@@ -20,7 +20,7 @@
                     <td>
                         <span th:if="${question.author != null}" th:text="${question.author.username}"/>
                     </td>
-                    <td th:text="${#temporals.format(question.createTime, 'yyyy-MM-dd HH:mm')}"></td>
+                    <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
                 </tr>
             </tbody>
         </table>
