@@ -32,9 +32,9 @@ public class QuestionService {
         Pageable pageable = PageRequest.of(page,10, Sort.by(sorts));
         Specification<Question> spec = search(kw);
         // JPA
-        // return this.questionRepository.findAll(spec, pageable);
+        return this.questionRepository.findAll(spec, pageable);
         // Query
-        return this.questionRepository.findALlByKeyword(kw, pageable);
+        // return this.questionRepository.findALlByKeyword(kw, pageable);
     }
 
     public Question getQuestion(Integer id) {
