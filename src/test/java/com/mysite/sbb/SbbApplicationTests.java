@@ -2,9 +2,11 @@ package com.mysite.sbb;
 
 import com.mysite.sbb.Answer.Answer;
 import com.mysite.sbb.Answer.AnswerRepository;
+import com.mysite.sbb.Answer.AnswerService;
 import com.mysite.sbb.Question.Question;
 import com.mysite.sbb.Question.QuestionRepository;
 import com.mysite.sbb.Question.QuestionService;
+import com.mysite.sbb.User.SiteUser;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,6 +37,8 @@ class SbbApplicationTests {
 	@Autowired
 	private QuestionService questionService;
 
+	@Autowired
+	private AnswerService answerService;
 	@Test
 	void testJpaAddQuestion() {
 		Question q1 = new Question();
@@ -146,6 +150,16 @@ class SbbApplicationTests {
 			String subject = String.format("테스트 데이터입니다:[%03d]", i);
 			String content = "냉무";
 			this.questionService.create(subject, content, null);
+		}
+	}
+
+	@Test
+	void testJpaCreateDummyAnswer() {
+		Question question = this.questionService.getQuestion(301);
+		SiteUser siteUser = question.getAuthor();
+		for (int i = 0; i <= 300; i++) {
+			String content = String.format("댓글봇:[%03d]", i);
+			this.answerService.create(question, content, siteUser);
 		}
 	}
 }
